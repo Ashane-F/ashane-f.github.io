@@ -73,17 +73,15 @@
 		}
 		
 		.last-updated {
-			position: absolute;
+			position: relative;
 <!-- 			bottom: -280px;
 			left: 0cm; -->
 <!-- 			display: flex; -->
 			font-size: 5px;
 			background-color: #02075d;
-			width: 96.2vw;
+			width: 95vw;
 			color: #ffffff;
-			border-top-left-radius: 10px; /* Adjust the border radius of top-left corner */
-            border-top-right-radius: 10px; /* Adjust the border radius of top-right corner */
-            padding-top: 10px; /* Padding from the top */
+			padding-top: 5px; /* Padding from the top */
             padding-left: 20px; /* Padding from the left */
             padding-right: 20px; /* Padding from the right */
             padding-bottom: 5px; /* Padding from the bottom */
@@ -176,9 +174,11 @@
                     University of Moratuwa
                 </li>
             </ul>
+		</div>
         
-        <br>
-        <br>
+        <br style= "line-height:6;">
+		
+        
         <div class="last-updated">
             <span style="font-size: 14px">Last updated:&nbsp;</span> <span style="font-size: 14px" id="last-updated-date"> </span><span style=" float: right; font-size: 14px">&copy; <span id="last-updated-year"> </span> Ashane Fernando </span>
         </div>
@@ -194,7 +194,7 @@
             updateLastUpdatedDate();
             setInterval(updateLastUpdatedDate, 1000);
         </script>
-        </div>
+
     </main>
 </div>
 </body>
