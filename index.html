@@ -1,79 +1,199 @@
 
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <!-- Other imports... -->
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/aaaakshat/cm-web-fonts@latest/fonts.css">
-  <style>
-    .centered {
-    text-align: center;
-    margin-top: 50px;
-      font-size: 18px;
-    }
-    body {
+    <!-- Other imports... -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/aaaakshat/cm-web-fonts@latest/fonts.css">
+    <style>
+        body {
+            font-family: "Computer Modern Serif", serif;
+            	diplay: flex;
+        }
+<!--     body {
       font-family: "Computer Modern Serif", serif;
-    }
-  </style>
+<!--       line-height: 1.2; --> -->
+<!--     } -->
+    .centered {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 18px;
+        }
+    .container {
+            width: 1400px; /* Fixed width */
+            margin: 0 auto; /* Center align */
+            position: relatve; /* Ensure positioning context for top-right corner */
+            	overflow: hidden;
+        }
+        .box_defined {
+            border: 0.5px solid #000;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            margin: 15px auto;
+            width: 65%; 
+            text-align: left;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box;
+        }
+     .invisible-box {
+            display: block;
+            width: 60%;
+            margin: 0 auto;
+            text-align: justify;
+            border: none;
+            background-color: transparent;
+        }
+        
+	.im_box {
+            margin-right: 30px;
+        }
+    .extra-margin {
+            margin-right: 45px;
+        }
+	.extra-margin_iom3 {
+            margin-right: 35px;
+        }
+    .extra-margin_mora {
+            margin-right: 35px;
+        }	   
+     .top-right {
+            position: absolute; /* Fix position relative to the viewport */
+            top: 20px; /* Adjust to your preference */
+            left: 1000px; /* Center within the 1400px container */
+            	right: 20px;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            z-index: 1000; /* Ensure it is above other content */
+<!--             transform: translateX(100%); /* Center horizontally */ -->
+        }
+		
+		.top-right span {
+			margin-right: 40px;
+		}
+		
+		.last-updated {
+			position: absolute;
+			bottom: -280px;
+			left: 0cm;
+<!-- 			display: flex; -->
+			font-size: 5px;
+			background-color: #02075d;
+			width: 96.2vw;
+			color: #ffffff;
+			border-top-left-radius: 10px; /* Adjust the border radius of top-left corner */
+            border-top-right-radius: 10px; /* Adjust the border radius of top-right corner */
+            padding-top: 10px; /* Padding from the top */
+            padding-left: 20px; /* Padding from the left */
+            padding-right: 20px; /* Padding from the right */
+            padding-bottom: 5px; /* Padding from the bottom */
+		}
+       .social-icons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .social-icons > div {
+            margin: 0 15px; /* Adjust spacing between icons */
+        }
+        #twitter-placeholder img,
+        #linkedin-placeholder img,
+        #google-scholar-placeholder img {
+            width: 25px; /* Adjust size as needed */
+            height: auto;
+        }
+        #email-placeholder img {
+            width: 30px;
+        }
+    </style>
 </head>
 
-<!-- Inline Styles -->
-<style>
-    /* Example CSS */
-    .social-icons {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .social-icons > div {
-        margin: 0 15px; /* Adjust spacing between icons */
-    }
-  
-  #twitter-placeholder img,
-  #linkedin-placeholder img,
-    #google-scholar-placeholder img{
-        width: 25px; /* Adjust size as needed */
-        height: auto;
-    }
-
-</style>
-
-<div class="centered">
-  <h1>Ashane Fernando</h1>
-  <div class="social-icons">
-          <!-- Google Scholar Logo -->
-        <div id="google-scholar-placeholder">
-            <a href="https://scholar.google.com/citations?user=c5wIFtYAAAAJ&hl=en&oi=ao">
-                <img src="Images/GoogleSch.png" alt="Google Scholar Logo">
-            </a>
-        </div>
-
-    <!-- LinkedIn Logo -->
-        <div id="linkedin-placeholder">
-            <a href="https://www.linkedin.com/in/ashane-fernando-4937b051/">
-                <img src="Images/LinkedIn.png" alt="LinkedIn Logo">
-            </a>
-        </div>
-   
-        <!-- Twitter Logo -->
-        <div id="twitter-placeholder">
-            <a href="https://twitter.com/AshaneFern">
-                <img src="Images/Twitter.jpg" alt="Twitter Logo">
-            </a>
-        </div>
-
-     
-
+<body>
+<div class="container">
+    <div class="top-right">
+        <span><b>Teachings</b></span>
+        <span><b>Research</b></span>
     </div>
-
-
-<div>
-  <p>
-    <i>"My mission in life is not merely to survive, but to thrive; and to do so with some passion, some compassion, some humor, and some style" <br>- Maya Angelou</i> <br></p>
-    <p>First steps in creating my own website.</p>
-
+    <main>
+        <div class="centered">
+            <h1>Ashane Fernando</h1>
+            <div class="social-icons">
+                <!-- Email Logo -->
+                <div id="email-placeholder">
+                    <a href="mailto:ashanef@wyb.ac.lk"> <img src="Images/email.png" title="Email"></a>
+                </div>
+                <!-- Google Scholar Logo -->
+                <div id="google-scholar-placeholder">
+                    <a href="https://scholar.google.com/citations?user=c5wIFtYAAAAJ&hl=en&oi=ao" title="Google Scholar" target="_blank">
+                        <img src="Images/GoogleSch.png" alt="Google Scholar Logo">
+                    </a>
+                </div>
+                <!-- LinkedIn Logo -->
+                <div id="linkedin-placeholder">
+                    <a href="https://www.linkedin.com/in/ashane-fernando-4937b051/" title="LinkedIn" target="_blank">
+                        <img src="Images/LinkedIn.png" alt="LinkedIn Logo">
+                    </a>
+                </div>
+                <!-- Twitter Logo -->
+                <div id="twitter-placeholder">
+                    <a href="https://twitter.com/AshaneFern" title="Twitter" target="_blank">
+                        <img src="Images/Twitter.jpg" alt="Twitter Logo">
+                    </a>
+                </div>
+            </div>
+            <p>
+                <i>"My mission in life is not merely to survive, but to thrive; and to do so with some passion, some compassion, some humour, and some style" <br>- Maya Angelou</i> <br>
+            </p>
+            <div class="invisible-box">
+                <p> <b>About:</b> I consider myself a <i>student of life</i> in three suits, i.e., Engineer, Researcher and Lecturer. Over the years, I have learned a great deal, yet I recognise there is always more to learn. I enjoy explaining and teaching concepts using mathematics, and I constantly seek a deeper understanding of challenging mathematics to improve my own knowledge.<br></p>
+            </div>
+            <div class="invisible-box">
+                <p> <b>Research:</b> I have keen interests in exploring opportunities in <span style="color:blue">minerals processing</span> (<i>understand and optimise processes</i>), <span style="color:blue">waste management</span> (<i>promote circular economy</i>), <span style="color:blue">image processing</span> (<i>theory and applications</i>) and <span style="color:blue">Chemical Engineering</span> (<i>reactions, fluids and thermodynamics</i>). I pursue <span style="color:blue">Artificial Intelligence/Machine Learning (AI/ML)</span> very close to my heart and eagerly wait to propose meaningful data-driven solutions to questions as <i>my cuppa</i>. I am always open to interesting ideas and I invite you to connect with me for fruitful discussions :).
+                </p>
+            </div>
+        </div>
+        <div class="box_defined">
+            <span style="float:left">Academic/Voluntary Positions: </span><br>
+            <ul style="list-style-type: none">
+                <li><span class="im_box" style=" float: left"><img width="55" class="extra-margin" src="Images/wusl.png" ></span><b>Lecturer</b> <span style="color:grey;font-weight:bold;float:right">2020 - Present</span> <br>
+                    Department of Nano Science Technology  <br>
+                    Wayamba University of Sri Lanka
+                </li>
+                <br>
+                <li><span class="im_box" style=" float: left"><img width="100" src="Images/BCI.png" ></span><b>Visiting Lecturer</b> <span style="color:grey;font-weight:bold;float:right">2023 - Present</span> <br>
+                    School of Computing | School of Business <br>
+                    Benedict XVI Catholic Institute
+                </li>
+                <br>
+                <li><span class="im_box" style=" float: left"><img height="65" class="extra-margin_iom3" src="Images/IOM3.jpg" ></span><b>Member (voluntary)</b> <span style="color:grey;font-weight:bold;float:right">2023 - Present</span> <br>
+                    Scholarly Publications Committee (SPC) <br>
+                    Institute of Materials, Minerals and Mining (IOM3), United Kingdom
+                </li>
+                <br>
+                <li><span class="im_box" style=" float: left"><img width="65" class="extra-margin_mora" src="Images/Moratuwa.png" ></span><b>Visiting Lecturer</b> <span style="color:grey;font-weight:bold;float:right">2020 - Present</span> <br>
+                    Department of Mathematics | Department of Earth Resources Engineering <br>
+                    University of Moratuwa
+                </li>
+            </ul>
+        </div>
+        <br>
+        <br>
+        <div class="last-updated">
+            <span style="font-size: 14px">Last updated:&nbsp;</span> <span style="font-size: 14px" id="last-updated-date"> </span><span style=" float: right; font-size: 14px">&copy; <span id="last-updated-year"> </span> Ashane Fernando </span>
+        </div>
+        <script>
+            function updateLastUpdatedDate() {
+                const now = new Date();
+                const options = { year: 'numeric', month: 'long', day: 'numeric' };
+                	const year = now.getFullYear(); 
+                const lastUpdatedDate = now.toLocaleString('en-US', options);
+                document.getElementById('last-updated-date').textContent = lastUpdatedDate;
+                document.getElementById('last-updated-year').textContent = year;
+            }
+            updateLastUpdatedDate();
+            setInterval(updateLastUpdatedDate, 1000);
+        </script>
+    </main>
 </div>
-  
-<main>
-  Hello there!
-</main>
-
-
+</body>
+</html>
