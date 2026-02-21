@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ashane Fernando - Teaching</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/aaaakshat/cm-web-fonts@latest/fonts.css">
+
+    <style>
+        body {
+            font-family: "Computer Modern Serif", serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fafafa;
+        }
+
+        .centered {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 18px;
+        }
+
+        .container {
+            width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .box_defined {
+            border: 0.5px solid #000;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            margin: 15px auto;
+            width: 65%;
+            text-align: left;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box;
+        }
+
+        .invisible-box {
+            display: block;
+            width: 60%;
+            margin: 0 auto;
+            text-align: justify;
+            border: none;
+            background-color: transparent;
+        }
+
+        /* Matches your Research page section look */
+        .content-section {
+            border: 0.5px solid #000;
+            padding: 25px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            margin: 20px auto;
+            width: 65%;
+            text-align: left;
+            box-shadow: 2px 2px 5px rgba(0, 0, 1, 0.1);
+            box-sizing: border-box;
+        }
+
+        .content-section h2 {
+            color: #0000ff;
+            margin-top: 0;
+            border-bottom: 2px solid #02075d;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .top-right {
+            position: absolute;
+            top: 20px;
+            left: 900px;
+            right: 20px;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .top-right span {
+            margin-right: 40px;
+        }
+
+        .top-right a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        .top-right a:hover {
+            color: #02075d;
+        }
+
+        .top-right a.active {
+            color: #02075d;
+            border-bottom: 2px solid #02075d;
+        }
+
+        .last-updated {
+            position: relative;
+            font-size: 5px;
+            background-color: #02075d;
+            width: 95vw;
+            color: #ffffff;
+            padding-top: 5px;
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-bottom: 5px;
+            margin-top: 40px;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .social-icons > div {
+            margin: 0 15px;
+        }
+
+        #twitter-placeholder img,
+        #linkedin-placeholder img,
+        #google-scholar-placeholder img {
+            width: 25px;
+            height: auto;
+        }
+
+        #email-placeholder img {
+            width: 30px;
+        }
+
+        ul {
+            line-height: 1.8;
+        }
+
+        /* ==========================
+           Collapsible Lectures (Dropdown)
+           ========================== */
+
+        .course-block {
+            margin-top: 10px;
+            margin-bottom: 18px;
+            border-left: 3px solid #02075d;
+            padding-left: 15px;
+        }
+
+        details.course-details {
+            background: transparent;
+            border-radius: 6px;
+            padding: 0;
+        }
+
+        summary.course-summary {
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 10px 0;
+            user-select: none;
+        }
+
+        summary.course-summary::-webkit-details-marker { display: none; }
+        summary.course-summary::marker { content: ""; }
+
+        .course-title {
+            font-weight: bold;
+            font-size: 1.05em;
+            color: #0000ff;
+        }
+
+        .course-right {
+            color: grey;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .course-hint {
+            color: #666;
+            font-style: italic;
+            font-size: 0.9em;
+            margin-left: 10px;
+            font-weight: normal;
+        }
+
+        .arrow {
+            margin-left: 10px;
+            font-size: 0.95em;
+            color: #02075d;
+        }
+
+        details[open] .arrow {
+            transform: rotate(90deg);
+            display: inline-block;
+        }
+
+        .lectures-wrap {
+            padding: 8px 0 6px 0;
+        }
+
+        .lecture-row {
+            border: 1px solid rgba(2, 7, 93, 0.25);
+            border-radius: 6px;
+            padding: 12px 12px;
+            margin: 10px 0;
+            background: #ffffff;
+        }
+
+        .lecture-name {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 6px;
+        }
+
+        .lecture-desc {
+            color: #555;
+            font-style: italic;
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        .lecture-links {
+            margin-top: 6px;
+        }
+
+        .dl-btn {
+            display: inline-block;
+            padding: 6px 10px;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            border: 1px solid #02075d;
+            border-radius: 4px;
+            text-decoration: none;
+            color: #02075d;
+            font-size: 0.95em;
+            transition: all 0.2s ease;
+        }
+
+        .dl-btn:hover {
+            background-color: #02075d;
+            color: #ffffff;
+        }
+
+        .tag {
+            display: inline-block;
+            font-size: 0.85em;
+            color: #666;
+            margin-left: 8px;
+            font-style: italic;
+        }
+
+        .note-box {
+            background: #ffffff;
+            border: 1px solid rgba(0, 0, 1, 0.1);
+            border-radius: 6px;
+            padding: 12px 14px;
+            line-height: 1.7;
+            color: #444;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+<div class="container">
+    <div class="top-right">
+        <span><b><a href="Index1.html" title="Home">Home</a></b></span>
+        <span><b><a href="Research1.html" title="Research">Research</a></b></span>
+        <span><b><a href="Teaching1.html" class="active" title="Teaching Materials">Teachings</a></b></span>
+    </div>
+
+    <main>
+        <div class="centered">
+            <h1>Ashane Fernando</h1>
+
+            <div class="social-icons">
+                <div id="email-placeholder">
+                    <a href="mailto:ashanef@wyb.ac.lk"><img src="Images/email.png" title="Email" alt="Email"></a>
+                </div>
+
+                <div id="google-scholar-placeholder">
+                    <a href="https://scholar.google.com/citations?user=c5wIFtYAAAAJ&hl=en&oi=ao" title="Google Scholar" target="_blank">
+                        <img src="Images/GoogleSch.png" alt="Google Scholar Logo">
+                    </a>
+                </div>
+
+                <div id="linkedin-placeholder">
+                    <a href="https://www.linkedin.com/in/ashane-fernando-4937b051/" title="LinkedIn" target="_blank">
+                        <img src="Images/LinkedIn.png" alt="LinkedIn Logo">
+                    </a>
+                </div>
+
+                <div id="twitter-placeholder">
+                    <a href="https://twitter.com/AshaneFern" title="Twitter" target="_blank">
+                        <img src="Images/Twitter.jpg" alt="Twitter Logo">
+                    </a>
+                </div>
+            </div>
+
+            <p>
+                <i>"My mission in life is not merely to survive, but to thrive; and to do so with some passion, some compassion, some humour, and some style" <br>- Maya Angelou</i> <br>
+            </p>
+<!--
+            <div class="invisible-box">
+                <p>
+                    <b>About:</b> I consider myself a <i>student of life</i> in three suits, i.e., Engineer, Researcher and Lecturer. Over the years, I have learned a great deal, yet I recognise there is always more to learn. I enjoy explaining and teaching concepts using mathematics, and I constantly seek a deeper understanding of challenging mathematics to improve my own knowledge.
+                </p>
+            </div>
+
+            <div class="invisible-box">
+                <p>
+                    <b>Research:</b> I have keen interests in exploring opportunities in <span style="color:blue">minerals processing</span> (<i>understand and optimise processes</i>), <span style="color:blue">waste management</span> (<i>promote circular economy</i>), <span style="color:blue">image processing</span> (<i>theory and applications</i>) and <span style="color:blue">Chemical Engineering</span> (<i>reactions, fluids and thermodynamics</i>). I pursue <span style="color:blue">Artificial Intelligence/Machine Learning (AI/ML)</span> very close to my heart and eagerly wait to propose meaningful data-driven solutions to questions as <i>my cuppa</i>. I am always open to interesting ideas and I invite you to connect with me for fruitful discussions :).
+                </p>
+                -->
+            </div>
+        </div>
+
+        <!-- ==========================
+             Teaching Materials Section (Collapsible)
+             ========================== -->
+        <div class="content-section">
+            <h2>Lecture Notes</h2>
+
+            <div class="note-box">
+                <b>Access note:</b> Some lecture materials maybe kept private. You may request access through Google Drive. If you are a student of Wayamba University of Sri Lanka,
+                you may request access should include your <i>name with initials</i>, <i>index number</i>, <i>degree programme</i> and <i>academic year</i> clearly. Also, be mindful that the <i>Second Semester</i> started on the <i><b>16<sup>th</sup> February 2026</b></i> will be updated by the end of each academic week. On the other hand, the <i>First Semester</i> modules will be updated later.
+                <!--
+                If you are a student of Wayamba University of Sri Lanka,
+                you may request access including your <i>degree programme</i>, <i>academic year</i>,
+                <i>index number</i>, and <i>full name</i> in the request. If not from the Wayamba University, please send an email requesting access.
+                -->
+            </div>
+
+            <!-- IMPORTANT:
+                 Replace these placeholders:
+                 1) YOUR_FORM_LINK  -> your Google Form link
+                 2) ashanef@wyb.ac.lk -> your preferred email (if different)
+            -->
+
+<!-- Course 1 -->
+<div class="course-block">
+    <details class="course-details">
+        <summary class="course-summary">
+            <div>
+                <span class="course-title">NANO1282 – Basic Statistics</span>
+                <span class="course-hint">(click to expand)</span>
+                <span class="arrow">▶</span>
+            </div>
+            <span class="course-right">Wayamba University of Sri Lanka</span>
+        </summary>
+
+        <div class="lectures-wrap">
+
+            <!-- Lecture 01 -->
+            <div class="lecture-row">
+                <div class="lecture-name">
+                    <a class="dl-btn" 
+                       href="YOUR_DRIVE_LINK_01" 
+                       target="_blank">
+                       Lecture 01: Introduction to Probability and Statistics
+                    </a>
+                </div>
+                <div class="lecture-desc">
+                    Overview of key probabilty and statistical ideas and how theysupport decision making.
+                </div>
+            </div>
+
+            <!-- Lecture 02 -->
+            <div class="lecture-row">
+                <div class="lecture-name">
+                    <a class="dl-btn" 
+                       href="YOUR_DRIVE_LINK_02" 
+                       target="_blank">
+                       Lecture 02: Data Types & Data Collection
+                    </a>
+                </div>
+                <div class="lecture-desc">
+                    Variables, measurement scales, sampling, bias, and common data sources.
+                </div>
+            </div>
+
+            <!-- Lecture 03 -->
+            <div class="lecture-row">
+                <div class="lecture-name">
+                    <a class="dl-btn" 
+                       href="YOUR_DRIVE_LINK_03" 
+                       target="_blank">
+                       Lecture 03: Descriptive Statistics & Visualisation
+                    </a>
+                </div>
+                <div class="lecture-desc">
+                    Tables, charts, measures of centre and spread, and practical interpretation.
+                </div>
+            </div>
+
+        </div>
+    </details>
+</div>
+
+            <!-- Course 2 -->
+            <div class="course-block">
+                <details class="course-details">
+                    <summary class="course-summary">
+                        <div>
+                            <span class="course-title">ETS532 - Computer Applications in Mineral Processing</span>
+                            <span class="course-hint">(click to expand)</span>
+                            <span class="arrow">▶</span>
+                        </div>
+                        <span class="course-right">PGIS – University of Peradeniya</span>
+                    </summary>
+
+                    <div class="lectures-wrap">
+
+                        <div class="lecture-row">
+                            <div class="lecture-name">Lecture 01: Introduction to Data Handling in Mineral Processing</div>
+                            <div class="lecture-desc">Data formats, cleaning, and practical workflows for mineral processing datasets.</div>
+                            <div class="lecture-links">
+                                <a class="dl-btn" href="YOUR_FORM_LINK" target="_blank">Request access (Form)</a>
+
+                                <a class="dl-btn"
+                                   href="mailto:ashanef@wyb.ac.lk?subject=Request%20for%20Lecture%20Materials%20-%20Computer%20Applications%20in%20Mineral%20Processing%20(Lecture%2001)&body=Dear%20Sir%2C%0A%0AI%20am%20requesting%20access%20to%20the%20lecture%20materials%20for%3A%0A%0ACourse%3A%20Computer%20Applications%20in%20Mineral%20Processing%0ALecture%3A%20Lecture%2001%20-%20Introduction%20to%20Data%20Handling%20in%20Mineral%20Processing%0A%0AStudent%20Details%20(WUSL)%3A%0A-%20Name%3A%20%0A-%20Index%20Number%3A%20%0A-%20Degree%20Programme%3A%20%0A-%20Academic%20Year%3A%20%0A%0AReason%20for%20request%3A%20%0A%0AThank%20you.%0A">
+                                    Email request
+                                </a>
+
+                                <span class="tag">Private materials — access upon verification</span>
+                            </div>
+                        </div>
+
+                        <div class="lecture-row">
+                            <div class="lecture-name">Lecture 02: Modelling & Prediction for Process Optimisation</div>
+                            <div class="lecture-desc">Regression/classification basics and how to apply them to process variables.</div>
+                            <div class="lecture-links">
+                                <a class="dl-btn" href="YOUR_FORM_LINK" target="_blank">Request access (Form)</a>
+
+                                <a class="dl-btn"
+                                   href="mailto:ashanef@wyb.ac.lk?subject=Request%20for%20Lecture%20Materials%20-%20Computer%20Applications%20in%20Mineral%20Processing%20(Lecture%2002)&body=Dear%20Sir%2C%0A%0AI%20am%20requesting%20access%20to%20the%20lecture%20materials%20for%3A%0A%0ACourse%3A%20Computer%20Applications%20in%20Mineral%20Processing%0ALecture%3A%20Lecture%2002%20-%20Modelling%20%26%20Prediction%20for%20Process%20Optimisation%0A%0AStudent%20Details%20(WUSL)%3A%0A-%20Name%3A%20%0A-%20Index%20Number%3A%20%0A-%20Degree%20Programme%3A%20%0A-%20Academic%20Year%3A%20%0A%0AReason%20for%20request%3A%20%0A%0AThank%20you.%0A">
+                                    Email request
+                                </a>
+
+                                <span class="tag">Private materials — access upon verification</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </details>
+            </div>
+
+        </div>
+
+        <!-- Footer -->
+<body style="margin:0; min-height:100vh; display:flex; flex-direction:column;">
+
+    <!-- Page content -->
+
+    <div style="
+        margin-top:auto;
+        padding:10px 20px;
+        font-size:12px;
+        display:flex;
+        justify-content:space-between;
+    ">
+        <span>Last pushed to GitHub: February 13, 2026</span>
+        <span>&copy; 2026 Ashane Fernando</span>
+    </div>
+
+</body>
+
+    </main>
+</div>
+</body>
+</html>
