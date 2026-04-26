@@ -12,7 +12,7 @@
             padding: 0;
         }
 
-       .centered {
+        .centered {
             text-align: center;
             margin-top: 50px;
             font-size: 18px;
@@ -88,13 +88,18 @@
         }
         
         .top-right a:hover {
-            color: #02075d;
+            color: #0000ff;
+        }
+
+        .top-right a.active {
+            color: #0000ff;
+            border-bottom: 2px solid #0207ff;
         }
         
-        .top-right a.active {
-            color: #02075d;
-            border-bottom: 2px solid #02075d;
-        }
+        .top-right a.aeris-link:hover {
+    		color: #388e3c;
+<!--     		border-bottom: 2px solid #2e7d32; -->
+		}
         
         .last-updated {
             position: relative;
@@ -128,10 +133,8 @@
         #email-placeholder img {
             width: 30px;
         }
-
-
     </style>
-
+       
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-5YZ5GRGRXE"></script>
     <script>
@@ -141,6 +144,7 @@
     
     gtag('config', 'G-5YZ5GRGRXE'); 
     </script>
+    
 </head>
 
 <body>
@@ -148,6 +152,7 @@
     <div class="top-right">
         <span><b><a href="index.html" class="active" title="Home">Home</a></b></span>
         <span><b><a href="Research.html" title="Research">Research</a></b></span>
+        <span><b><a href="AERIS_3.html" class="aeris-link" title="AERIS Group">AERIS Group</a></b></span>
         <span><b><a href="Teaching.html" title="Teaching Materials">Teachings</a></b></span>
 
     </div>
