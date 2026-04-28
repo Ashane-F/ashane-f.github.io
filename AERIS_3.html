@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>AERIS Research Group</title>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/aaaakshat/cm-web-fonts@latest/fonts.css">
+
+<style>
+body {
+    font-family: "Computer Modern Serif", serif;
+    margin: 0;
+    background: #fafafa;
+}
+
+.container {
+    width: 1400px;
+    margin: 0 auto;
+    position: relative;   
+
+}
+
+* {
+    box-sizing: border-box;
+}
+
+<!-- /* NAV */
+.top-right {
+    position: absolute;
+    top: 20px;
+    right: 50px;
+    display: flex;
+} -->
+
+<!-- .top-right {
+    position: absolute;
+    top: 20px;
+    right: 50px;
+    display: flex;
+    font-size: 16px;
+} -->
+        
+.top-right {
+    position: absolute;
+    left: 882.5px;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    white-space: nowrap;
+    z-index: 1000;
+}
+        
+.title {
+    font-variant: small-caps;
+    letter-spacing: 1px;
+}
+
+.highlight {
+    color: #0000ff;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.title:hover .highlight {
+    letter-spacing: 8px;
+}
+
+.top-right span {
+    margin-right: 10px;
+}
+        
+.top-right a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease;
+}
+<!-- .top-right span { margin-left: 30px; }
+
+.top-right a {
+    text-decoration: none;
+    color: black;
+} -->
+
+.top-right a:hover {
+    color: #0000ff;
+}
+
+<!-- .top-right a:hover, -->
+
+.top-right a.active {
+    color: #02075d;
+    border-bottom: 2px solid #0207ff;
+}
+
+.top-right a.aeris-link.active {
+    color: #388e3c;
+    border-bottom: 2px solid #388e3c;
+}
+
+/* HEADER */
+.centered {
+    text-align: center;
+    margin-top: 70px;
+}
+
+.year-title {
+    margin-top: 20px;
+    color: #02075d;
+    border-bottom: 2px solid #02075d;
+}
+
+/* PROJECT FRAME (LARGE) */
+.project-frame {
+    width: 90%;
+    margin: 40px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+
+    height: 450px;       
+    overflow-y: auto;   
+}
+
+/* FILTERS */
+.filters {
+<!--     position: sticky; -->
+<!--     top: 0; -->
+    background: white;
+    z-index: 5;
+    padding-bottom: 5px;
+
+    display: flex;              
+    justify-content: center;   
+    flex-wrap: wrap;            
+}
+
+.filters button {
+    margin: 5px;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 20px;
+    background: #ddd;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.filters button:hover,
+.filters button.active {
+    background: #388e3c;
+    color: white;
+}
+
+/* GRID */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 280px); 
+    justify-content: center; 
+    gap: 25px;
+    padding: 10px;  
+
+}
+/* CARD */
+.card {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border: 1px solid #ddd; /* subtle outline to show edges */
+
+}
+
+.card:hover {
+    transform: translateY(-8px);
+}
+
+.card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 15px;
+}
+
+.card-title {
+    font-weight: bold;
+    color: #388e3c;
+    font-size: 16px;
+}
+
+.card-desc {
+    font-size: 13px;
+    color: #666;
+    margin-top: 5px;
+}
+
+.card-stat {
+    font-size: 13px;
+    color: #666;
+    margin-top: 5px;
+    font-style: italic;
+}
+
+
+/* 3 COLUMN SECTION */
+.info-section {
+    width: 90%;
+    margin: 40px auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.box {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+/* FOOTER */
+.footer {
+    margin-top: 50px;
+    padding: 10px 20px;
+    font-size: 12px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* MODAL */
+#modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(4px);
+
+    justify-content: center;
+    align-items: center;
+
+    z-index: 9999;   
+}
+
+#modal-content {
+    background: white;
+    width: 800px;
+    max-width: 90%;
+    padding: 25px;
+    border-radius: 10px;
+    position: relative;
+}
+
+#modal-content span {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    font-size: 22px;
+    cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<div class="top-right">
+    <span><b><a href="index.html">Home</a></b></span>
+    <span><b><a href="Research.html">Research</a></b></span>
+    <span><b><a href="AERIS_3.html" class="aeris-link active">AERIS Group</a></b></span>
+    <span><b><a href="Teaching.html">Teachings</a></b></span>
+</div>
+<div class="container">
+
+<!-- HEADER -->
+<div class="centered">
+<h1 class="title" id="group-title">
+    Advanced Environmental Research and Innovations for Sustainability
+</h1>
+
+	<div style="
+    	font-size: 28px;
+    	font-weight: bold;
+    	letter-spacing: 2px;
+    	margin-top: 5px;
+	">
+    	<span style="color: #388e3c;">AERIS</span> Group
+	</div>
+
+    <p style="margin-top:15px;">
+        Energy | Resource Management | Environmental Stewardship | Engineering | AI | Waste-to-Wealth
+    </p>
+</div>
+
+
+<!-- ABOUT SECTION -->
+<div style="width:90%; margin: 40px auto 0 auto; background: white; padding: 25px 30px; border-radius: 12px; box-shadow: 0 8px 25px rgba(0,0,0,0.08);">
+    <h3 style="color: #388e3c; margin-top: 0;">About</h3>
+    <p style="text-align: justify; line-height: 1.7; color: #333; margin: 0;">
+        The <b >AERIS Group</b> is an applied research group based at the Department of Nano Science Technology, Faculty of Technology, Wayamba University of Sri Lanka. We work at the intersection of materials science, environmental engineering and emerging technologies to develop sustainable solutions for real-world challenges. Our research is Japanese Funded and spans water remediation, waste-to-wealth, energy applications and resources — guided by a commitment to circular economy principles and environmental stewardship. The group brings together enthusiastic <b>Research Assistants</b> working on funded projects under close mentorship, with an emphasis on rigorous methodology and practical impact.
+    </p>
+</div>
+
+
+<!-- <div class="centered" style="margin-top: 40px;">
+    <h2 style="color: #02075d; border-bottom: 2px solid #02075d; display: inline-block; padding-bottom: 5px;">
+        Project Catalog
+    </h2>
+</div> -->
+
+<!-- LARGE PROJECT FRAME -->
+<div class="project-frame">
+    <!-- TITLE -->
+<!--     <h3 style="text-align: left; color: #388e3c; margin: 0 0 10px 10px; position: sticky; top: 0; background: white; z-index: 6; padding: 10px 0 5px 0;">Project Catalog</h3> -->
+<!--     <h3 style="text-align: left; color: #388e3c; margin: 0 0 10px 10px;">Project Catalog</h3> -->
+    <!-- FILTERS -->
+<!--     <div class="filters">
+        <button onclick="filterSelection('all')" class="active">All</button> -->
+<!--         <button onclick="filterSelection('ai')">AI</button> -->
+<!--         <button onclick="filterSelection('2025')">2025/2026</button>
+        <button onclick="filterSelection('water')">Water</button>
+        <button onclick="filterSelection('materials')">Materials</button>
+        <button onclick="filterSelection('sensors')">Sensors</button>
+
+
+        
+    </div> -->
+
+    <!-- STICKY HEADER: TITLE + FILTERS -->
+    <div style="position: sticky; top: 0; background: white; z-index: 10; padding: 10px 0 5px 0;">
+        <h3 style="text-align: left; color: #388e3c; margin: 0 0 10px 10px;">Project Catalog</h3>
+        <!-- FILTERS -->
+        <div class="filters">
+        <button onclick="filterSelection('all')" class="active">All</button>
+<!--         <button onclick="filterSelection('ai')">AI</button> -->
+        <button onclick="filterSelection('2025')">2025/2026</button>
+        <button onclick="filterSelection('water')">Water</button>
+        <button onclick="filterSelection('materials')">Materials</button>
+        <button onclick="filterSelection('sensors')">Sensors</button>
+        </div><!-- end .filters -->
+    </div><!-- end sticky wrapper -->
+
+    <!-- PROJECTS -->
+    <div class="grid">
+
+        <div class="card materials sensors 2025" onclick="openModal('p1')">
+            <img src="Images/Projects/2025/Chandima/Project.png">
+            <div class="card-content">
+                <div class="card-title">Battery Recycling</div>
+                <div class="card-desc">Chandima Ruwanthilaka</div>
+                <div class="card-stat">Status: Current</div>
+            </div>
+        </div>
+
+        <div class="card materials water 2025" onclick="openModal('p2')">
+            <img src="Images/Projects/2025/Punari/Project.png">
+            <div class="card-content">
+                <div class="card-title">Oil Remediation</div>
+                <div class="card-desc">Punari Liyanage</div>
+                <div class="card-stat">Status: Current</div>
+            </div>
+        </div>
+
+        <div class="card materials water 2025" onclick="openModal('p3')">
+            <img src="Images/Projects/2025/Dasun/Project.png">
+            <div class="card-content">
+                <div class="card-title">Water Remediation</div>
+                <div class="card-desc">Dasun Wijethunga</div>
+            		<div class="card-stat">Status: Current</div>
+            </div>
+        </div>
+        
+        <div class="card materials sensors 2025" onclick="openModal('p4')">
+            <img src="Images/Projects/2025/Dulmi/Project.jpg">
+            <div class="card-content">
+                <div class="card-title">VOC Sensor</div>
+                <div class="card-desc">Dulmi Nethmini</div>
+                <div class="card-stat">Status: Current</div>
+            </div>
+        </div>
+        
+<!--         <div class="card materials" onclick="openModal('p4')">
+            <img src="Images/project4.jpg">
+            <div class="card-content">
+                <div class="card-title">Gas Sensor</div>
+                <div class="card-desc">Dulmi Nethmini</div>
+                <div class="card-stat">Status: Current</div>
+            </div>
+        </div> -->
+
+    </div>
+
+</div>
+
+<!-- 3 HORIZONTAL COLUMNS -->
+<div class="info-section">
+
+    <div class="box">
+        <h3 style="color: #388e3c;">Updates</h3>
+        <p>We expect to announce funding availability for the <b>2026/2027 round</b> by <b>10th August 2026</b>. </p>
+        <p>Please find the key details/documents required from the previous year (i.e., <b>2025/2026 round</b>) application as a reference. Also note that, some requirements may change in the next funding cycle.</p>
+        <p>If you have an interesting research idea, please be ready with a proposal. We are happy to fund you.</p>
+                <a href="https://drive.google.com/file/d/1thA7CMV_taTbuI9k72piNjq6IowRBrH9/view?usp=sharing" target="_blank">Reference Materials</a>
+    </div>
+
+    <div class="box">
+        <h3 style="color: #388e3c;">Advisory Panel</h3>
+        <p>Dr Ashane Fernando (Lead)</p>
+        <p>Dr Manjula Wickramasinghe (Dean, FoT)</p>
+        <p>Prof. Jeewani Jayasinghe</p>
+        <p>Dr Murthi Kandanapitiye (HoD, DNST)</p>
+        <p>Dr Nadeeka Dilrukshi</p>
+
+
+    </div>
+
+    <div class="box">
+        <h3 style="color: #388e3c;">Contact</h3>
+<!--         <p style="text-align: justify;">We expect to announce funding availability by August 10th. If you have an interesting research idea, please be ready with a proposal. We are happy to fund you.</p> -->
+        <p>AI | Water | Materials | Energy | Minerals</p>
+        <p><b>Email:</b> ashanef@wyb.ac.lk</p>
+    </div>
+
+</div>
+
+<!-- FOOTER -->
+<!-- <div class="footer">
+    <span>Last updated: 2026</span>
+    <span>&copy; 2026 Ashane Fernando</span>
+</div> -->
+
+    <div style="
+        margin-top:auto;
+        padding:10px 20px;
+        font-size:12px;
+        display:flex;
+        justify-content:space-between;
+        box-sizing:border-box;   
+
+    ">
+        <span id="last-pushed" style="margin-left:10px;"></span>
+        <span>&copy; <span id="year"></span> Ashane Fernando</span>
+    </div>
+
+    <script src="footer.js"></script>
+    
+<!-- MODAL -->
+<div id="modal">
+    <div id="modal-content">
+        <span onclick="closeModal()">&times;</span>
+        <div id="modal-body"></div>
+    </div>
+</div>
+
+<!-- SCRIPT -->
+<script>
+const title = document.getElementById("group-title");
+
+// TITLE STYLE
+const ignore = ["and", "for"];
+const words = title.innerText.split(" ");
+
+title.innerHTML = words.map(word => {
+    return ignore.includes(word.toLowerCase())
+        ? word
+        : `<span class="highlight">${word.charAt(0)}</span>${word.slice(1)}`;
+}).join(" ");
+
+// FULL PROJECT DATA
+const projectData = {
+	p1: {
+    	title: "Sustainable Recycling of Li-ion Batteries",
+    	ra: "Chandima Ruwanthilaka",
+    	image: "Images/Projects/2025/Chandima/Chandima.png",   
+    	desc: "Application of recycled graphite for lithium recovery and sensing.",
+    	proposal: "This project develops sustainable recycling technologies for spent lithium-ion batteries through direct recycling and selective lithium recovery. The research focuses on the separation and regeneration of anode active material (graphite) and cathode active materials from mixed battery black mass. Unlike conventional hydrometallurgy and pyrometallurgy, the proposed process avoids intensive acid treatment, high energy consumption, and secondary emissions. Instead, it uses low solvent consumption and the physical properties of battery materials to achieve efficient phase separation, providing an alternative to froth flotation processes. Regenerated graphite and cathode materials are evaluated for reuse in new battery and sensor applications. In addition, selective lithium recovery is investigated through environmentally friendly leaching systems based on primary amino acids, enabling lithium extraction under mild conditions. By combining direct recycling with green lithium recovery, this research aims to improve resource efficiency, reduce environmental impacts, and support circular economy strategies for critical battery materials.",
+    	linkedin: "www.linkedin.com/in/chandima-ruwanthilaka",
+    	publications: ["Journal (2023)"]
+	},
+    p2: {
+        title: "Sustainable Magnetically Recoverable Biomass-Based AC Composites for Efficient Petroleum Hydrocarbon Remediation from Oil-Contaminated Waters",
+        ra: "Punari Liyanage",
+        image: "Images/Projects/2025/Punari/Punari.png",  
+        desc: "Biomass-based carbon composites for PHC removal.",
+        proposal: "This project proposes the development of a sustainable, magnetically recoverable activated carbon–based composite for efficient removal of petroleum hydrocarbons (PHCs) from oil-contaminated water. Locally abundant leaf and floral biomass waste will be converted into activated carbon via controlled pyrolysis and chemical activation (KOH/H₃PO₄), optimizing temperature and impregnation ratios to achieve high surface area and oleophilicity. Selected high-performing samples will be functionalized with magnetic phases (Fe₃O₄ or nZVI) to enable rapid recovery using external magnets, addressing a key limitation of conventional adsorbents. The materials will be evaluated through screening tests (yield, iodine/methylene blue number, oil uptake, wettability) followed by advanced characterization (BET, SEM, XRD, FTIR, VSM). Performance will be assessed based on oil adsorption capacity, magnetic recovery efficiency, reusability, and stability (leaching tests). This approach integrates waste valorization, low-cost material synthesis, and circular economy principles, offering a scalable and practical solution for PHC remediation in developing regions.",
+        linkedin: "www.linkedin.com/in/punari-liyanage",
+        publications: ["Water Research Journal (2023)"]
+    },
+    p3: {
+        title: "Scalable Biochar-Supported Fe–Oxide/g-C₃N₄ Composite for Sustainable Multi-Pollutant Water",
+        ra: "Dasun Wijethunga",
+        desc: "Fe–oxide composite for purification.",
+        image: "Images/Projects/2025/Dasun/Dasun.png",   
+        proposal: "This project develops a scalable and low-cost water purification system using a biochar-supported Fe-oxide/g-C₃N₄ composite for removing dyes, heavy metals, and pharmaceutical contaminants. The research integrates adsorption and visible-light-driven photocatalysis into a single multifunctional material derived from biomass waste and earth-abundant precursors. Unlike conventional treatment methods that rely on high energy input, toxic chemicals, or single-pollutant removal, the proposed system operates under mild conditions with reduced chemical usage and improved environmental compatibility. Biochar enhances surface area and adsorption, while Fe-oxide and g-C₃N₄ enable efficient charge separation and pollutant degradation under visible light. The composite is synthesized using green, low-temperature, and scalable methods. Performance is evaluated through multi-pollutant removal, reaction kinetics, and reusability under real wastewater conditions. A prototype filtration unit is developed to demonstrate practical application, aiming to provide an energy-efficient and sustainable solution for decentralized water treatment systems.",
+        linkedin: "https://www.linkedin.com/in/dasun-wijethunga-8331362a1",
+        publications: ["Materials Science Letters (2022)"]
+    },
+    p4: {
+        title: "A Comparative Study of ZnO-Enhanced Activated Carbon and Pure Activated Carbon from Nutmeg Shells for Enhanced VOC Gas Sensing",
+        ra: "Dulmi Nethmini",
+        image: "Images/Projects/2025/Dulmi/Nethmini.jpg", 
+        desc: "Gas Sensor fabrication from activated carbon.",
+        proposal: "Volatile Organic Compounds (VOCs) like ethanol, methanol, and acetone are hazardous pollutants emitted from industrial processes and household products. Exposure to these gases is linked to respiratory diseases, cancer, and environmental damage, making their detection critically important. This research aims to develop a low-cost, high-performance gas sensor using agricultural waste, nutmeg shells as a sustainable precursor for activated carbon (AC). While AC offers excellent porosity and surface area for gas adsorption, pure AC sensors suffer from slow response and recovery times. To overcome this limitation, we will synthesize a novel composite material by integrating Zinc Oxide (ZnO) nanoparticles with the AC. The ZnO-AC composite is expected to create synergistic effects, where the AC concentrates gas molecules while the ZnO provides rapid electron transfer and chemical sensitivity. This research will directly compare the sensing performance of pure AC and ZnO-AC sensors. The expected outcome is a highly sensitive, fast-responding, and eco-friendly sensor suitable for real-time VOC monitoring applications.",
+        linkedin: "https://www.linkedin.com",
+        publications: ["Sensors Journal (2023)"]
+    }
+};
+
+// MODAL FUNCTION
+function openModal(id) {
+    document.body.style.overflow = "hidden";
+
+    let d = projectData[id];
+
+    document.getElementById("modal-body").innerHTML = `
+        <h2 style="color:#0000ff;">${d.title}</h2>
+
+        <div style="display:flex; align-items:center; gap:15px; margin-bottom:10px;">
+            
+            <img src="${d.image || 'Images/default.png'}" 
+                 style="width:80px; height:80px; border-radius:50%; object-fit:cover;">
+
+            <div>
+                <p style="margin:0;"><b>Research Assistant:</b></p>
+                <a href="${d.linkedin}" target="_blank" style="color:#02075d; text-decoration:none;">
+                    ${d.ra}
+                </a>
+            </div>
+
+        </div>
+
+<!--         <p>${d.desc}</p> -->
+
+        <p><b>Background:</b></p>
+        <p style="text-align: justify;">${d.proposal || "No proposal available"}</p>
+
+<!--         <p><b>Publications:</b></p>
+        <ul>
+            ${(d.publications || []).map(pub => `<li>${pub}</li>`).join("")}
+        </ul> -->
+    `;
+
+    document.getElementById("modal").style.display = "flex";
+}
+
+// CLOSE MODAL
+function closeModal() {
+    document.body.style.overflow = "auto";
+    document.getElementById("modal").style.display = "none";
+}
+
+// FILTER
+function filterSelection(category) {
+    let cards = document.getElementsByClassName("card");
+    let buttons = document.querySelectorAll(".filters button");
+
+    buttons.forEach(btn => btn.classList.remove("active"));
+    event.target.classList.add("active");
+
+    for (let i = 0; i < cards.length; i++) {
+        if (category === "all" || cards[i].classList.contains(category)) {
+            cards[i].style.display = "block";
+        } else {
+            cards[i].style.display = "none";
+        }
+    }
+}
+
+// CLICK OUTSIDE MODAL
+window.onclick = function(e) {
+    if (e.target == document.getElementById("modal")) {
+        closeModal();
+    }
+};
+
+</script>
+</div>
+</body>
+</html>
