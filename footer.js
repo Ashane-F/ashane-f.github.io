@@ -1,4 +1,4 @@
-const lastPushedDate = "April 28, 2026";
+const lastPushedDate = "May 25, 2026";
 
 document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("last-pushed").textContent =
