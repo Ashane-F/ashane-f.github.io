@@ -18,14 +18,9 @@
     }
 
     /* ----- container & typography ----- */
-    .container {
-      width: 1400px;
-      max-width: 100%;
-      margin: 0 auto;
-      position: relative;
-      overflow: hidden;
-      padding: 0 20px;
-    }
+.container {
+            overflow: hidden;
+        }
 
     .centered {
       text-align: center;
@@ -34,34 +29,6 @@
     }
 
     /* ----- navigation ----- */
-    .top-right {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      font-size: 16px;
-      display: flex;
-      align-items: center;
-      z-index: 1000;
-      gap: 40px;
-    }
-    .top-right span {
-      margin-right: 0;
-    }
-    .top-right a {
-      text-decoration: none;
-      color: inherit;
-      transition: color 0.3s ease;
-    }
-    .top-right a:hover {
-      color: #0000ff;
-    }
-    .top-right a.active {
-      color: #0000ff;
-      border-bottom: 2px solid #0207ff;
-    }
-    .top-right a.aeris-link:hover {
-      color: #388e3c;
-    }
 
     /* ----- boxes & text blocks ----- */
     .box_defined {
@@ -207,16 +174,6 @@
 
     /* responsive adjustments */
     @media (max-width: 1000px) {
-      .top-right {
-        position: static;
-        justify-content: center;
-        margin-top: 20px;
-        flex-wrap: wrap;
-        gap: 20px;
-      }
-      .container {
-        padding-top: 20px;
-      }
       .box_defined {
         width: 90%;
       }
@@ -250,6 +207,7 @@
       }
     }
   </style>
+  <link rel="stylesheet" href="nav.css">
 </head>
 
 <body>
